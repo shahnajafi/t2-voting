@@ -24,7 +24,7 @@
 				<h2>قابل اعتماد</h2>
 				<br>
 				<h3> آسان</h3>
-				<input style="margin-top:15px;color: crimson;" type="submit" name="" value="ورود به سایت"/><br/>
+				<input style="margin-top:15px;color: crimson;" type="submit" name="" value="ورود به سایت" onclick="goToSite()" /><br/>
 			</div>
 			<!-- /Right Side Title -->
 			<!-- Left Side Forms -->
@@ -43,8 +43,8 @@
 					<div class="tab-content" id="myTabContent">
 						<!-- Tab 1 -->
 						<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-							<h3 class="register-heading">ورود به حساب کاربری</h3>
-							<form action="send_mail.php" method="post">
+							<h3 class="register-heading">ورود رای دهنده</h3>
+							<form action="#" method="post">
 								<div class="row register-form mx-auto">
 									<div class="col-12 col-md-6">
 										<div class="form-group">
@@ -63,9 +63,10 @@
 										<div class="form-group">
 											<input type="password" class="form-control"  placeholder="تکرار رمز عبور *" value="" />
 										</div>
-										<div class="form-group">
+										<!-- <div class="form-group">
 											<div class="maxl">
-												<label class="radio inline">
+												
+												<label class="radio inline" aria-placeholder="جنسیت:">
 													<input type="radio" name="gender" value="مرد" checked>
 													<span> مرد </span>
 												</label>
@@ -74,10 +75,11 @@
 													<span>زن </span>
 												</label>
 											</div>
-										</div>
+										</div> -->
 									</div>
 									<div class="col-12 col-md-6">
 										<div class="form-group">
+											<br style="margin-top:8px ;">
 											<input type="email" class="form-control" placeholder="پست الکترونیک *" value="" />
 										</div>
 										<div class="form-group">
@@ -86,16 +88,16 @@
 										<div class="form-group">
 											<input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="*شماره رای گیری " value="" />
 										</div>
-										<div class="form-group">
+										<!-- <div class="form-group">
 											<select class="form-control">
 												<option class="hidden"  selected disabled>سوال امنیتی را انتخاب کنید</option>
 												<option>در چه ماهی متولد شده اید؟</option>
 												<option>برند تلفن همراه شما چیست؟</option>
 												<option>نام نخستین عمویتان چیست؟</option>
 											</select>
-										</div>
+										</div> -->
 										<div class="form-group">
-											<input type="text" class="form-control" placeholder="* پاسخ را وارد کنید" value="" />
+											<input type="text" class="form-control" placeholder="* پاسخ امنیتی را وارد کنید" value="" />
 										</div>
 										<input type="submit" class="btnRegister"  value="ورود"/>
 									</div>
@@ -105,10 +107,14 @@
 						<!-- /Tab 1 -->
 						<!-- Tab 2 -->
 						<div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-							<h3  class="register-heading"> نام نمایندگی</h3>
+							<h3  class="register-heading">ورود  رای گیرنده</h3>
 							<form action="send_mail.php" method="post">
 								<div class="row register-form mx-auto">
 									<div class="col-12 col-md-6">
+										<div class="form-group">
+											<label style="color:green ;" for="">کد رای گیرنده کدملی می باشد </label>
+											<input type="text" name="tel" maxlength="10" minlength="10" class="form-control" placeholder="*کد رای گیرنده" value="" />
+										</div>
 										<div class="form-group">
 											<input type="text" name="fname" class="form-control" placeholder="* نام" value="" />
 										</div>
@@ -118,17 +124,19 @@
 										<div class="form-group">
 											<input type="email" name="email" class="form-control" placeholder="پست الکترونیک *" value="" />
 										</div>
+										
+									</div>
+									<div class="col-12 col-md-6">
 										<div class="form-group">
 											<input type="text" name="tel" maxlength="10" minlength="10" class="form-control" placeholder="* تلفن تماس" value="" />
 										</div>
-									</div>
-									<div class="col-12 col-md-6">
 										<div class="form-group">
 											<input type="password" name="password" class="form-control" placeholder="رمز عبور *" value="" />
 										</div>
 										<div class="form-group">
 											<input type="password" name="repeat_password" class="form-control" placeholder="تکرار رمز عبور *" value="" />
 										</div>
+
 										<div class="form-group">
 											<select class="form-control" name="question">
 												<option class="hidden"  selected disabled>سوال امنیتی را انتخاب کنید</option>
@@ -137,10 +145,10 @@
 												<option>نام نخستین عمویتان چیست؟</option>
 											</select>
 										</div>
-										<div class="form-group">
-											<input type="text" name="answer" class="form-control" placeholder="* پاسخ را وارد کنید" value="" />
+										<div class="form-group"> 
+											 <input type="text" name="answer" class="form-control" placeholder="* پاسخ را وارد کنید" value="" /> 
 										</div>
-										<input type="submit" class="btnRegister"  value="عضویت"/>
+										<input type="submit" class="btnRegister"  value="ورود"/>
 									</div>
 								</div>
 							</form>
@@ -150,13 +158,18 @@
 				</div>
 			</div>
 			<!-- /Left Side Forms -->
-			<div class="col-12 mt-3 small text-white text-center">فارسی و راست چین شده توسط <a href="http://webrubik.com/" class="text-white">وب روبیک</a></div>
+			<!-- <div class="col-12 mt-3 small text-white text-center">فارسی و راست چین شده توسط <a href="http://webrubik.com/" class="text-white">وب روبیک</a></div> -->
 		</div>
 	</div>
 
 	<!-- Scripts -->
 	<script src="js/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		function goToSite() {
+			location.replace("../index.html");
+		}
+	</script>
 	<!-- /Scripts -->
 
 </body><!-- This template has been downloaded from Webrubik.com -->
