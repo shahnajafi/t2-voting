@@ -26,45 +26,30 @@ input[type=email], input[type=password] {
 
 .register {
     margin-top: 3%;
-    padding: 3%;
-    width: 40%;
+    padding: 30px;
+    width: 35%;
+
+    background-color: rgba(22, 23, 24, 0.349);
 }
 
-.register-right {
-    text-align: center;
-    color: #fff;
-    margin-top: 4%;
-}
+
 
 .register-right input {
     border: none;
     border-radius: 1.5rem;
     padding: 2%;
-    width: 80%;
+    width: 70%;
     background: #f8f9fa;
     font-weight: bold;
     color: #383d41;
-    margin-top: 30%;
-    margin-bottom: 3%;
     cursor: pointer;
 }
 
-@media screen and (max-width: 767px) {
-    .register-right input {
-        margin-top: 0;
-    }
-}
 
 .register-left {
     background: #f8f9fa;
     border-top-right-radius: 10% 50%;
     border-bottom-right-radius: 10% 50%;
-}
-
-@media screen and (max-width: 767px) {
-    .register-left {
-        border-radius: 10px;
-    }
 }
 
 .register-right img {
@@ -73,24 +58,6 @@ input[type=email], input[type=password] {
     width: 25%;
     -webkit-animation: mover 2s infinite alternate;
     animation: mover 1s infinite alternate;
-}
-
-@-webkit-keyframes mover {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(-20px);
-    }
-}
-
-@keyframes mover {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(-20px);
-    }
 }
 
 .register-right p {
@@ -107,11 +74,10 @@ input[type=email], input[type=password] {
 
 .btnRegister {
     float: left;
-    margin-top: 10%;
     border: none;
     border-radius: 1.5rem;
     padding: 2%;
-    background: #0062cc;
+    background: #10a535;
     color: #fff;
     font-weight: 600;
     width: 50%;
@@ -162,6 +128,10 @@ input[type=email], input[type=password] {
         flex-direction: column;
 
 }
- input {
-    width: 100%;
+ input , select {
+    margin: 10px 0;
+}
+
+.form-control {
+    width: 70%;
 }

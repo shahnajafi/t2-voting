@@ -13,24 +13,40 @@
 <body class="rtl">
 	<div class="container register">
 		<div class="row">
-										<input type="text" class="form-control" placeholder="* نام" value="" />
 
+										<input type="text" class="form-control" placeholder="* نام" value="" />
 										<input type="text" class="form-control" placeholder="* نام خانوادگی" value="" />
-										<input type="password" class="form-control" placeholder="رمز عبور *" value="" />
-													
-										<input type="password" class="form-control"  placeholder="تکرار رمز عبور *" value="" />
-									
+										<input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="* کد ملی" value="" />
+										<input type="text" class="form-control" placeholder="*نام ارگان/سازمان/شرکت" value="" />
+										<select class="form-control">
+											<option class="hidden"  selected disabled>نوع گروه</option>
+											<option>سازمان ها</option>
+											<option>شرکت ها</option>
+											<option>مجتمع مسکونی</option>
+											<option>احزاب</option>
+											<option>دانشگاه ها</option>
+											<option>گروه های مردم نهاد</option>
+											<option>انجمن ها</option>
+											<option>وزارتخانه ها</option>
+											<option>سایر</option>
+										</select>
 										<input type="email" class="form-control" placeholder="پست الکترونیک *" value="" />
-										
-										<input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="* تلفن تماس" value="" />
+										<input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="کد پستی" value="" />
+										<input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder=" تلفن تماس" value="" />
 											<select class="form-control">
-												<option class="hidden"  selected disabled>سوال امنیتی را انتخاب کنید</option>
-												<option>در چه ماهی متولد شده اید؟</option>
-												<option>برند تلفن همراه شما چیست؟</option>
-												<option>نام نخستین عمویتان چیست؟</option>
+												<option class="hidden"  selected disabled>ماکیت</option>
+												<option>حقیقی</option>
+												<option>حقوقی</option>
 											</select>
-										<input type="text" class="form-control" placeholder="* پاسخ را وارد کنید" value="" />
-										<input type="submit" class="btnRegister"  value="عضویت"/> 
+											<select class="form-control">
+												<option class="hidden"  selected disabled>نوع رای گیری</option>
+												<option>رای گیرنده</option>
+												<option>رای دهنده</option>
+											</select>
+										<input type="text" class="form-control" placeholder="استان" value="" />
+										<input type="text" class="form-control" placeholder="شهرستان" value="" />
+										<textarea name="contact-message" id="" cols="30" rows="5" class="form-control" placeholder="آدرس"></textarea>
+										<input type="submit" class="btnRegister"  value="ثبت اطلاعات"/> 
 
 </body>
 </html>
