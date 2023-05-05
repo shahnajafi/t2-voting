@@ -1,0 +1,148 @@
+/* CSS Document */
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'Vazir';
+    src: url('../fonts/Vazir.eot');
+    src: local('../fonts/Vazir'), url('../fonts/Vazir.woff') format('woff'), url('../fonts/Vazir.ttf') format('truetype');
+}
+
+body {
+    font-family: 'Vazir';
+    background: -webkit-linear-gradient(right, #3931af, #00c6ff);
+}
+
+input[type=submit] {
+    outline: none;
+}
+
+input[type=submit]:hover {
+    opacity: .9;
+}
+
+input[type=email], input[type=password] {
+    text-align: right;
+}
+
+.register {
+    margin-top: 3%;
+    padding: 30px;
+    width: 35%;
+
+    background-color: aliceblue;
+}
+
+
+
+.register-right input {
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    width: 70%;
+    background: #f8f9fa;
+    font-weight: bold;
+    color: #383d41;
+    cursor: pointer;
+}
+
+
+.register-left {
+    background: #f8f9fa;
+    border-top-right-radius: 10% 50%;
+    border-bottom-right-radius: 10% 50%;
+}
+
+.register-right img {
+    margin-top: 15%;
+    margin-bottom: 5%;
+    width: 25%;
+    -webkit-animation: mover 2s infinite alternate;
+    animation: mover 1s infinite alternate;
+}
+
+.register-right p {
+    font-weight: lighter;
+    padding: 12%;
+    margin-top: -9%;
+}
+
+.register .register-form {
+    width: 100%;
+    padding: 10%;
+    margin-top: 10%;
+}
+
+.btnRegister {
+    float: left;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #10a535;
+    color: #fff;
+    font-weight: 600;
+    width: 50%;
+    cursor: pointer;
+}
+.btnRegister1{
+    float: left;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #e73111;
+    color: #fff;
+    font-weight: 600;
+    width: 50%;
+    cursor: pointer;
+}
+
+.register .nav-tabs {
+    margin-top: 3%;
+    border: none;
+    background: #0062cc;
+    border-radius: 1.5rem;
+    width: 28%;
+    float: left;
+}
+
+.register .nav-tabs .nav-link {
+    padding: 2%;
+    height: 34px;
+    font-weight: 600;
+    color: #fff;
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+}
+
+.register .nav-tabs .nav-link:hover {
+    border: none;
+}
+
+.register .nav-tabs .nav-link.active {
+    width: 100px;
+    color: #0062cc;
+    border: 2px solid #0062cc;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+}
+
+.register-heading {
+    text-align: center;
+    margin-top: 8%;
+    margin-bottom: -15%;
+    color: #495057;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+        flex-direction: column;
+
+}
+ input , select {
+    margin: 10px 0;
+}
+
+.form-control {
+    width: 70%;
+}
