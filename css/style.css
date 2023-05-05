@@ -27,6 +27,7 @@ input[type=email], input[type=password] {
 .register {
     margin-top: 3%;
     padding: 3%;
+    width: 40%;
 }
 
 .register-right {
@@ -152,4 +153,15 @@ input[type=email], input[type=password] {
     margin-top: 8%;
     margin-bottom: -15%;
     color: #495057;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+        flex-direction: column;
+
+}
+ input {
+    width: 100%;
 }
