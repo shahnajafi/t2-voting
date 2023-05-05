@@ -1008,6 +1008,7 @@ a:hover {
 
 .mgt {
    margin-top: 20px;
+    overflow-x: hidden;
 }
 
 .slide-1:before {
@@ -1790,3 +1791,9 @@ a:hover {
         transform: translateX(1);
     }
 }
+
+
+
+
+
+/* steller.css */
