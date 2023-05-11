@@ -9,7 +9,7 @@ function drawLineChart() {
           {
             scaleLabel: {
               display: true,
-              labelString: "Hits"
+              labelString: "بازدید"
             }
           }
         ]
@@ -24,31 +24,31 @@ function drawLineChart() {
       type: "line",
       data: {
         labels: [
-          "January",
-          "February",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July"
+          "ژانویه",
+          "فوریه",
+          "مارس",
+          "آپریل",
+          "مه",
+          "زوِئن",
+          "جولای"
         ],
         datasets: [
           {
-            label: "Latest Hits",
+            label: "آخرین بازدید",
             data: [88, 68, 79, 57, 56, 55, 70],
             fill: false,
             borderColor: "rgb(75, 192, 192)",
             lineTension: 0.1
           },
           {
-            label: "Popular Hits",
+            label: "بازدید محبوب",
             data: [33, 45, 37, 21, 55, 74, 69],
             fill: false,
             borderColor: "rgba(255,99,132,1)",
             lineTension: 0.1
           },
           {
-            label: "Featured",
+            label: "بازدید ویژه",
             data: [44, 19, 38, 46, 85, 66, 79],
             fill: false,
             borderColor: "rgba(153, 102, 255, 1)",
@@ -77,7 +77,7 @@ function drawBarChart() {
             },
             scaleLabel: {
               display: true,
-              labelString: "Hits"
+              labelString: "تعداد"
             }
           }
         ]
@@ -90,18 +90,22 @@ function drawBarChart() {
     configBar = {
       type: "bar",
       data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: ["سازمان ها","شرکت ها","دانشگاه ها","مدارس","مجتمع مسکونی","وزارتخانه","انجمن ها","احزاب","گروه های مردم نهاد","سایر"],
         datasets: [
           {
-            label: "# of Hits",
-            data: [12, 19, 3, 5, 2, 3],
+            label: "تعداد",
+            data: [12, 19, 3, 5, 2, 3,8,12,5,18],
             backgroundColor: [
               "rgba(255, 99, 132, 0.2)",
               "rgba(54, 162, 235, 0.2)",
               "rgba(255, 206, 86, 0.2)",
               "rgba(75, 192, 192, 0.2)",
               "rgba(153, 102, 255, 0.2)",
-              "rgba(255, 159, 64, 0.2)"
+              "rgba(255, 159, 64, 0.2)",
+              "rgba(255, 11, 178, 0.2)",
+              "rgba(100, 45, 64, 0.2)",
+              "rgba(30, 19, 255, 0.2)",
+              "rgba(255,68,92, 0.2)"
             ],
             borderColor: [
               "rgba(255,99,132,1)",
@@ -109,7 +113,14 @@ function drawBarChart() {
               "rgba(255, 206, 86, 1)",
               "rgba(75, 192, 192, 1)",
               "rgba(153, 102, 255, 1)",
-              "rgba(255, 159, 64, 1)"
+              "rgba(255, 159, 64, 1)",
+              "rgba(243, 80, 132, 1)",
+              "rgba(200, 125, 70, 1)",
+              "rgba(40, 18, 236, 1)",
+              "rgba(255, 200, 35, 1)"
+
+
+
             ],
             borderWidth: 1
           }
@@ -135,7 +146,7 @@ function drawPieChart() {
       data: {
         datasets: [
           {
-            data: [4600, 5400],
+            data: [4200, 6000],
             backgroundColor: [
               window.chartColors.purple,
               window.chartColors.green
@@ -143,7 +154,7 @@ function drawPieChart() {
             label: "Storage"
           }
         ],
-        labels: ["Used: 4,600 GB", "Available: 5,400 GB"]
+        labels: ["استفاده شده:4200 گیگ","کل:6000 گیگ"]
       },
       options: optionsPie
     };
