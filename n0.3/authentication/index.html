@@ -14,15 +14,15 @@
 		<!-- start progressbar -->
 		<ul id="progressbar">
 			<li class="active">حساب کاربری</li>
-			<li>حساب شبکه های اجتماعی</li>
+			<li>احرازهویت</li>
 			<li>مشخصات فردی</li>
 		</ul>
 		<!-- end progressbar -->
 		<!-- start step one form -->
 		<fieldset>
 			<h2 class="fs-title">ورود به حساب کاربری</h2>
-			<h3 class="fs-subtitle">قدم اول</h3>
 			<input type="text" name="email" placeholder="پست الکترونیک" />
+			<input type="text" name="phone" placeholder="تلفن" />
 			<input type="password" name="pass" placeholder="رمز عبور" />
 			<input type="password" name="cpass" placeholder="تکرار رمز عبور" />
 			<input type="button" name="next" value="ارسال کد احراز هویت" class="next action-button">
@@ -31,21 +31,20 @@
 		<!-- end step one form -->
 		<!-- start step two form -->
 		<fieldset>
-			<h2 class="fs-title">احرازهویت</h2>
-			<h3 style="background-color: #25a5f9;height:25px;color: white;padding-top: 20px;" class="fs-subtitle">کد احرازهویت ارسال شد </h3>
-			<input style="border-color: green;border-width:1px;background-color:#35ee5d36; color: rgb(255, 208, 0);"  type="text" name="twitter" placeholder="کد احرازهویت" />
+			<h3 style="background-color: #25a5f9;height:25px;color: white;padding-top:20px;" class="fs-subtitle">کد احرازهویت ارسال شد </h3>
+			<input style="border-color: green;border-width:1px;background-color:#35ee5d36; color: rgb(255, 208, 0);margin-top:-7px;"  type="text" name="twitter" placeholder="کد احرازهویت" />
 			<input type="button" name="next" class="next action-button" value="ارسال" />
-		</fieldset> -->
+			<div></div>
+			<a style="color: green;" href="">ارسال مجدد </a>
+		</fieldset> 
 		<!-- end step two form -->
 		<!-- start step three form -->
 		<fieldset>
 			<h2 class="fs-title">مشخصات فردی</h2>
-			<h3 class="fs-subtitle">ما هیچوقت آنها را بروز نمی دهیم</h3>
 			<input type="text" name="fname" placeholder="نام" />
 			<input type="text" name="lname" placeholder="نام خانوادگی" />
 			<input type="text" name="phone" placeholder="تلفن" />
 			<textarea name="address" placeholder="آدرس"></textarea>
-			<input type="button" name="previous" class="previous action-button" value="قبلی" />
 			<input type="submit" name="submit" class="submit action-button" value="ثبت" />
 		</fieldset>
 		<!-- end step three form -->
