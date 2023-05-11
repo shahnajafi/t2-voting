@@ -13,10 +13,6 @@
 
 html {
   height: 100%;
-  /*Image only BG fallback*/
-  background: url('../pics/gs.png');
-  /*background = gradient + image pattern combo*/
-  background: linear-gradient(rgba(196, 102, 0, 0.2), rgba(155, 89, 182, 0.2)), url('../pics/gs.png');
 }
 
 body {
