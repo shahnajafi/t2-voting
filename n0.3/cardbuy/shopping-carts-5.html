@@ -14,14 +14,90 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
   <!-- MDB -->
   <link rel="stylesheet" href="css/bootstrap-shopping-carts.min.css" />
+   
+
+  <style>
+		body {
+    margin: auto;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow: auto;
+    background: linear-gradient(rgb(0, 171, 17) 50%, #fff 50%);
+    /* animation: gradient 50s ease infinite; */
+    background-size: 400% 400%;
+    background-attachment: fixed;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+} 
+
+.wave {
+    background: rgb(255 255 255 / 25%);
+    border-radius: 1000% 1000% 0 0;
+    position: fixed;
+    width: 200%;
+    height: 12em;
+    animation: wave 10s -3s linear infinite;
+    transform: translate3d(0, 0, 0);
+    opacity: 0.8;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
+
+@keyframes wave {
+    2% {
+        transform: translateX(1);
+    }
+
+    25% {
+        transform: translateX(-25%);
+    }
+
+    50% {
+        transform: translateX(-50%);
+    }
+
+    75% {
+        transform: translateX(-25%);
+    }
+
+    100% {
+        transform: translateX(1);
+    }
+}
+
+
+	</style>
+
 </head>
 
+
 <body>
+  <div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+   </div>
+  
+
+
   <!-- Start your project here-->
   <style>
     @media (min-width: 1025px) {
       .h-custom {
         height: 100vh !important;
+        margin-top:-2.7% ;
+
       }
     }
 
@@ -140,18 +216,21 @@
       background-color: #4285f4;
     }
   </style>
-  <section class="h-100 h-custom" style="background-color: #eee;">
+
+  
+  <section class="h-100 h-custom" >
+    
     <div class="container h-100 py-5">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col">
           <div class="card shopping-cart" style="border-radius: 15px;">
-            <div class="card-body text-black" style="background-color: #1266f1;" >
+            <!-- <div class="card-body text-black" style="background-color:#bbbb;" > -->
           
 
               <div class="row" style="background-color:#fff;">
-                <div class="col-lg-6 px-5 py-4" style="background-color: #fbfbfb23;">
+                <div class="col-lg-6 px-5 py-4" >
 
-                  <h3 class="mb-5 pt-2 text-center fw-bold text-uppercase" style="color:rgb(14, 14, 14);">محصولات شما</h3>
+                  <h3 class="mb-5 pt-2 text-center fw-bold text-uppercase" style="color:rgb(0, 171, 17);">محصولات شما</h3>
 
                   <div class="d-flex align-items-center mb-5">
                     <div class="flex-shrink-0">
@@ -188,9 +267,9 @@
                   </div>
 
                 </div>
-                <div class="col-lg-6 px-5 py-4" style="background-color: rgba(59, 60, 59, 0.248);">
+                <div class="col-lg-6 px-5 py-4" style="background-color: rgb(0, 171, 17);">
 
-                  <h3 class="mb-5 pt-2 text-center fw-bold text-uppercase" style="color:#383636;">پرداخت</h3>
+                  <h3 class="mb-5 pt-2 text-center fw-bold text-uppercase" style="color:#fff">پرداخت</h3>
 
                   <form class="mb-5">
 
@@ -214,7 +293,7 @@
                       <div class="col-md-6 mb-5">
                         <div class="form-outline" style="background-color:#fff;border-color: #fff;">
                           <input type="text" id="typeExp" class="form-control form-control-lg" 
-                            size="7" id="exp" minlength="7" maxlength="7" />
+                            size="7" id="exp" minlength="7" maxlength="7" value="02/01" />
                           <label class="form-label" for="typeExp">Expiration</label>
                         </div>
                       </div>
@@ -232,9 +311,9 @@
                         href="#!">obcaecati sapiente</a>.</p> -->
 
                     <button type="button" class="btn btn-primary btn-block btn-lg">پرداخت</button>
-
+                  
                     <h5 class="fw-bold mb-5" style="position: absolute; bottom: 0;">
-                      <a href="#!"><i class="fas fa-angle-left me-2"></i>بازگشت به صفحه اصلی</a>
+                      <a href="../index.html"><i class="fas fa-angle-left me-2"></i>بازگشت به صفحه اصلی</a>
                     </h5>
 
                   </form>
