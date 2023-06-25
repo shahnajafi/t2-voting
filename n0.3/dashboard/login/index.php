@@ -52,9 +52,12 @@ if (isset($_POST["submit"])) {
 
 <!--						<a href="../dashboard.php" class="login100-form-btn">وارد شوید</a>-->
 
-                        <button name="submit">وارد شوید</button>
+                        <button style="display: block" name="submit">وارد شوید</button> <br>
+
 					</div>
+                    <a  href="../../index.php">  بازگشت به سایت</a>
 				</form>
+
 			</div>
 		</div>
 	</div>

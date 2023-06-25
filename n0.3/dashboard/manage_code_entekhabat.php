@@ -11,6 +11,11 @@
 
 <div class="manage-jobs-box">
     <h3>مدیریت شماره رای گیری ها</h3>
+    <div class="col-lg-12 col-md-12 d-flex">
+        <div class="col-lg-2 col-md-2" style="margin: 20px">
+            <a class="default-btn" href="create_code_entekhabat.php">افزودن کدانتخاباتی جدید</a>
+        </div>
+    </div>
     <div class="bar"></div>
     <div class="manage-jobs-table table-responsive">
         <table class="table table-bordered">

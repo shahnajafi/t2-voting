@@ -5,9 +5,13 @@
         <h1>مدیریت نامزدهای انتخابات</h1>
     </div>
 
-
     <div class="manage-jobs-box">
         <h3>مدیریت نامزدهای انتخابات</h3>
+        <div class="col-lg-12 col-md-12 d-flex">
+            <div class="col-lg-2 col-md-2" style="margin: 20px">
+                <a class="default-btn" href="create_namzad.php">افزودن نامزد انتخاباتی جدید</a>
+            </div>
+        </div>
         <div class="bar"></div>
         <div class="manage-jobs-table table-responsive">
             <table class="table table-bordered">
@@ -17,6 +21,7 @@
                     <th>تحصیلات</th>
                     <th>سن</th>
                     <th>دسته ی رای گیری</th>
+                    <th>تعداد رای</th>
                     <th>عملیات</th>
                 </tr>
                 </thead>
@@ -36,6 +41,11 @@
                         echo implode(" , ", $a);
                         ?>
 
+                    </td>
+                    <td>
+                        <?php $count_vote = count_vote_namzad($namzad->name_family) ;
+                            echo count($count_vote) ;
+                        ?>
                     </td>
                     <td>
                         <ul class="option-list">

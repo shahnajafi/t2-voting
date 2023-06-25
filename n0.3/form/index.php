@@ -9,9 +9,14 @@ if (isset($_POST["submit"])) {
         $voting_number = $_POST["voting_number"];
         $name_namzad = $_POST["name_namzad"];
 
+        $voting_number_ids = Chech_voting_number($voting_number);
+        $voting_number_id = $voting_number_ids->id;
         $check_user = check_user_national_code($national_code,$name_family);
+        $check_user_vote = check_user_vote($national_code,$voting_number,$name_namzad);
 
-        if ($check_user === null) {
+        if($check_user_vote !== null) {
+            $error = "شما فقط یکبار می توانید رای بدهید";
+        }elseif ($check_user === null) {
             $error = "کاربری یافت نشد ! لطفا قبل از رای دادن ثبت نام کنید";
         }else{
             $check_namzad = check_namzad($name_namzad);
@@ -20,13 +25,15 @@ if (isset($_POST["submit"])) {
             }else {
                 $a = check_namzad($name_namzad);
                 $namzad_id = $a->id;
-                $check_voting_number_namzad = check_voting_number_namzad($namzad_id,$voting_number);
+                $check_voting_number_namzad = check_voting_number_namzad($namzad_id,$voting_number_id);
+
                 if ($check_voting_number_namzad === null) {
                     $error = "این نام نامزد به شماره رای گیری اختصاص ندارد";
                 }else{
                     $insert_vote = insert_user_vote($national_code,$voting_number,$name_namzad);
                     $error = "رای شما با موفقیت ثبت شد";
                 }
+
             }
          }
     }

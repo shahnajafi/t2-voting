@@ -4,10 +4,10 @@ require_once "../config.php";
 if (isset($_POST["submit"])) {
     if (!isset($_POST["national_code"]) || !isset($_POST["username"])
         || !isset($_POST["password"]) || !isset($_POST["repeat_password"])
-        || !isset($_POST["email"]) || !isset($_POST["phone"]) || !isset($_POST["voting_number"])) {
+        || !isset($_POST["email"]) || !isset($_POST["phones"]) || !isset($_POST["voting_number"])) {
         $error = "خطا!!! هیچ فیلدی نباید حذف شود";
     }elseif ($_POST["national_code"] == "" || $_POST["username"] == "" || $_POST["password"] == ""
-        || $_POST["email"] == "" || $_POST["phone"] == ""
+        || $_POST["email"] == "" || $_POST["phones"] == ""
         || $_POST["voting_number"] == ""){
         $error = "خطا!!! هیچ فیلدی نباید خالی باشد";
     }else {
@@ -16,20 +16,25 @@ if (isset($_POST["submit"])) {
         $password = $_POST["password"];
         $repeat_password = $_POST["repeat_password"];
         $email = $_POST["email"];
-        $phone = $_POST["phone"];
+        $phones = $_POST["phones"];
         $voting_number = $_POST["voting_number"];
 
-        $check_user = Check_User($national_code, $username, $password, $email, $phone);
+        $check_user = Check_User($national_code, $username, $password, $email, $phones);
         $check_voting_number = Chech_voting_number($voting_number);
 
-        if ($password !== $repeat_password) {
+        $national_codes = custom_check_national_code($national_code);
+        if($national_codes === false) {
+            $error = "کد ملی وارد شده صحیح نمی باشد ";
+        }elseif ($password !== $repeat_password) {
             $error = "گذرواژه وتکرار گذرواژه یکی نمی باشد";
+        }elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $error = "ایمیل وارد شده صحیح نمی باشد";
         }elseif ($check_user !== null) {
-            $error = "کاربری با این مشخصات بلا ثبت نام کرده است";
+            $error = "کاربری با این مشخصات قبلا ثبت نام کرده است";
         } elseif ($check_voting_number === null) {
             $error = "شماره رای گیری که وارد کرده اید نادرست است";
         } else {
-            $insert_user = Insert_User($national_code, $username, $password, $email, $phone);
+            $insert_user = Insert_User($national_code, $username, $password, $email, $phones);
             $error = "اطلاعات با موفقیت درج شد ";
         }
     }
@@ -87,7 +92,7 @@ if (isset($_POST["submit"])) {
 									<div class="col-12 col-md-6">
 										<div class="form-group">
 											<label style="color:green ;" for="">کد رای دهنده کدملی می باشد</label>
-											<input type="text" minlength="10" maxlength="10" name="national_code" class="form-control" placeholder="*کد رای دهنده" value="" />
+											<input type="text" name="national_code" class="form-control" placeholder="*کد رای دهنده" value="" />
 										</div>
 										<!-- <div class="form-group">
 											<input type="text" class="form-control" placeholder="* نام" value="" />
@@ -108,10 +113,10 @@ if (isset($_POST["submit"])) {
 											<input type="email" class="form-control" placeholder="پست الکترونیک *" value="" name="email" />
 										</div>
 										<div class="form-group">
-											<input type="text" minlength="10" maxlength="10" name="phone" class="form-control" placeholder="* تلفن تماس" value="" />
+											<input type="text"  name="phones" class="form-control" placeholder="* تلفن تماس" />
 										</div>
 										<div class="form-group">
-											<input type="text" minlength="10" maxlength="10" name="voting_number" class="form-control" placeholder="*شماره رای گیری " value="" />
+											<input type="text"  name="voting_number" class="form-control" placeholder="*شماره رای گیری " value="" />
 										</div>
                                         <?php if (isset($error)) echo $error?>
 										<input type="submit" class="btnRegister" name="submit"  value="ورود"/>
@@ -163,7 +168,7 @@ if (isset($_POST["submit"])) {
 										<div class="form-group"> 
 											 <input type="text" name="answer" class="form-control" placeholder="* پاسخ را وارد کنید" value="" /> 
 										</div>
-										<input type="submit" class="btnRegister"  value="ورود"/>
+                                        <input type="submit" class="btnRegister"  value="ثبت نام"/>
 									</div>
 								</div>
 							</form>
@@ -182,7 +187,7 @@ if (isset($_POST["submit"])) {
 	<script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 		function goToSite() {
-			location.replace("../index.html");
+			location.replace("../index.php");
 		}
 	</script>
 	<!-- /Scripts -->

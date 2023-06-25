@@ -36,7 +36,7 @@
 
     <link rel="stylesheet" href="assets/css/rtl.css">
 
-    <title>Zoben - قالب HTML زوبن , پوسته سایت آگهی و کاریابی</title>
+    <title>پنل مدیریت</title>
 
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
 </head>
@@ -89,7 +89,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="index.html" class="nav-link">
+                <a href="../index.php" class="nav-link">
                     <span class="icon"><i class="ri-logout-circle-r-line"></i></span>
                     <span class="menu-title">خروج</span>
                 </a>

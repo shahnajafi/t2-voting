@@ -14,18 +14,18 @@ try {
 
 
 /////////////////////////////////////////////////////
-function Check_User($national_code,$username,$password,$email,$phone)
+function Check_User($national_code,$username,$password,$email,$phones)
 {
     global $conn;
 
     $sql = "SELECT * FROM `user` WHERE `national_code`= :national_code and username= :username and password = :password and
-    email= :email and phone= :phone";
+    email= :email and phones= :phones";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(":national_code", $national_code);
     $stmt->bindParam(":username", $username);
     $stmt->bindParam(":password", $password);
     $stmt->bindParam(":email", $email);
-    $stmt->bindParam(":phone", $phone);
+    $stmt->bindParam(":phones", $phones);
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_OBJ);
     if ($user === false) {
@@ -68,19 +68,17 @@ function Check_User_login($password,$email)
     }
 }
 
-function Insert_User($national_code,$username,$password,$email,$phone)
+function Insert_User($national_code,$username,$password,$email,$phones)
 {
     global $conn;
 
-    $created_at =time();
-    $sql = "INSERT INTO `user`(`national_code`, `username`, `password`, `email`, `phone`, `cteated_at`) VALUES (:national_code,:username,:password,:email,:phone,:cteated_at)";
+    $sql = "INSERT INTO `user`(`national_code`, `username`, `password`, `email`, `phones`) VALUES (:national_code,:username,:password,:email,:phones)";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(":national_code", $national_code);
     $stmt->bindParam(":username", $username);
     $stmt->bindParam(":password", $password);
     $stmt->bindParam(":email", $email);
-    $stmt->bindParam(":phone", $phone);
-    $stmt->bindParam(":cteated_at", $created_at);
+    $stmt->bindParam(":phones", $phones);
     $stmt->execute();
 }
 
@@ -226,7 +224,6 @@ function insert_namzad_voting_number($category_id,$namzad_id)
 
 function check_user_national_code($national_code,$name_family)
 {
-
     global $conn;
 
     $sql = "SELECT * FROM `user` where national_code = :national_code and username= :name_family";
@@ -259,14 +256,14 @@ function check_namzad($name_namzad)
 
 }
 
-function check_voting_number_namzad($namzad_id,$voting_number)
+function check_voting_number_namzad($namzad_id,$voting_number_id)
 {
     global $conn;
 
     $sql = "SELECT * FROM `namzad_voting_number` where namzad_id = :namzad_id and voting_number_id= :voting_number";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(":namzad_id", $namzad_id);
-    $stmt->bindParam(":voting_number", $voting_number);
+    $stmt->bindParam(":voting_number", $voting_number_id);
     $stmt->execute();
     $result = $stmt->fetch(PDO::FETCH_OBJ);
     if ($result === false) {
@@ -329,6 +326,119 @@ function find_title_voting_number($voting_number)
     }else{
         return $result;
     }
+}
+
+function custom_check_national_code($code)
+{
+    if(!preg_match('/^[0-9]{10}$/',$code))
+        return false;
+    for($i=0;$i<10;$i++)
+        if(preg_match('/^'.$i.'{10}$/',$code))
+            return false;
+    for($i=0,$sum=0;$i<9;$i++)
+        $sum+=((10-$i)*intval(substr($code, $i,1)));
+    $ret=$sum%11;
+    $parity=intval(substr($code, 9,1));
+    if(($ret<2 && $ret==$parity) || ($ret>=2 && $ret==11-$parity))
+        return true;
+    return false;
+}
+
+function Delete_user_vote($id)
+{
+    global $conn;
+
+    $sql = "DELETE FROM `user_vote` WHERE id= :id ";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(":id", $id);
+    $stmt->execute();
+}
+
+function count_user_vote()
+{
+    global $conn;
+
+    $sql = "SELECT * FROM `user_vote`";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+    return $result;
+}
+
+function count_vote_namzad($name_namzad)
+{
+    global $conn;
+
+    $sql = "SELECT * FROM `user_vote` where name_namzad= :name_namzad";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(":name_namzad", $name_namzad);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+    return $result;
+}
+
+function insert_namzad($name_family,$age,$tahsilat)
+{
+    global $conn;
+
+    $sql = "INSERT INTO `namzad`(`name_family`, `age`, `tahsilat`) VALUES (:name_namzad,:age,:tahsilat)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(":name_namzad", $name_family);
+    $stmt->bindParam(":age", $age);
+    $stmt->bindParam(":tahsilat", $tahsilat);
+    $stmt->execute();
+    $result = $conn->lastInsertId();
+    return $result;
+}
+
+function insert_voting_number($title,$voting_number){
+    global $conn;
+
+    $sql = "INSERT INTO `voting_number`(`title`, `voting_number`) VALUES (:title,:voting_number)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(":title", $title);
+    $stmt->bindParam(":voting_number", $voting_number);
+    $stmt->execute();
+}
+
+function check_user_vote($national_code,$voting_number,$name_namzad)
+{
+    global $conn;
+
+    $sql = "SELECT * FROM `user_vote` where national_code= :national_code and voting_number= :voting_number and name_namzad= :name_namzad";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(":national_code", $title);
+    $stmt->bindParam(":voting_number", $voting_number);
+    $stmt->bindParam(":name_namzad", $name_namzad);
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_OBJ);
+    if ($result === false) {
+        return null;
+    }else{
+        return $result;
+    }
+}
+
+function max_vot_namzad(){
+
+    global $conn;
+
+    $sql = "SELECT `name_namzad`,COUNT(id) as count_vote FROM user_vote GROUP BY name_namzad ORDER by count_vote DESC LIMIT 1";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_OBJ);
+    return $result;
+}
+
+function check_admin_login($id){
+    global $conn;
+
+    $sql = "SELECT * FROM admin WHERE id= :id";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(":id", $id);
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_OBJ);
+    return $result;
 }
 ?>
 

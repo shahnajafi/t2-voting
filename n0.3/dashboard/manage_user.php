@@ -34,13 +34,13 @@
                     </td>
                     <td><?= $find_user_base_national_code->national_code ?></td>
                     <td><?= $find_user_base_national_code->email ?></td>
-                    <td><?= $find_user_base_national_code->phone ?></td>
+                    <td><?= $find_user_base_national_code->phones ?></td>
                     <td><?= $user->name_namzad ?></td>
                     <td><?= $find_title_voting_number->title ?></td>
                     <td>
                         <ul class="option-list">
                             <li>
-                                <a href="delete_namzad.php?id="
+                                <a href="delete_user.php?id=<?= $user->id ?>"
                                    style="text-align: center"
                                    class="option-btn d-inline-block" data-bs-toggle="tooltip" data-bs-placement="top"
                                    title="حذف">
